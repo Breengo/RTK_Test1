@@ -59,10 +59,8 @@ function App() {
   const isLast = curQuestion >= QUESTIONS.length - 1;
 
   function onNext() {
+    if (questionData.answers[choicedAnswer].isRight) rightAnswersRef.current++;
     if (!isLast && choicedAnswer !== -1) {
-      if (questionData.answers[choicedAnswer].isRight)
-        rightAnswersRef.current++;
-
       setChoicedAnswer(-1);
       setCurQuestion(curQuestion + 1);
     } else {
